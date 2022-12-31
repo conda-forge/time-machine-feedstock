@@ -29,7 +29,7 @@ requirements:
     - python-dateutil
 
 {% set cov_threshold = 98 %}  # [linux]
-{% set cov_threshold = 59 %}  # [osx]
+{% set cov_threshold = 57 %}  # [osx]
 {% set cov_threshold = 0 %}  # [win]
 
 test:
