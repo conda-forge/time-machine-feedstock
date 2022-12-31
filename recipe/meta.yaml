@@ -1,4 +1,4 @@
-{% set version = "2.8.2" %}
+{% set version = "2.9.0" %}
 
 package:
   name: time-machine
@@ -7,16 +7,16 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/t/time-machine/time-machine-{{ version }}.tar.gz
-    sha256: 2ff3cd145c381ac87b1c35400475a8f019b15dc2267861aad0466f55b49e7813
+    sha256: 60222d43f6e93a926adc36ed37a54bc8e4d0d8d1c4d449096afcfe85086129c2
   - folder: src
     url: https://github.com/adamchainz/time-machine/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 6e17cd56da15a78ffc38f948b0592e509db394d3f86d7b8bd974ac3dd686932e
+    sha256: 4c356560a2af1b3235da6deeeb68de67afda2bcfbe2a810e211ae4c5df3684a4
 
 
 build:
   skip: true  # [py<37]
   script: cd dist && {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
