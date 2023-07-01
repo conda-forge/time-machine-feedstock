@@ -7,11 +7,11 @@ package:
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/t/time-machine/time-machine-{{ version }}.tar.gz
-    sha256: 60222d43f6e93a926adc36ed37a54bc8e4d0d8d1c4d449096afcfe85086129c2
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/time_machine-{{ version }}.tar.gz
+    sha256: 64fd89678cf589fc5554c311417128b2782222dd65f703bf248ef41541761da0
   - folder: src
     url: https://github.com/adamchainz/time-machine/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 4c356560a2af1b3235da6deeeb68de67afda2bcfbe2a810e211ae4c5df3684a4
+    sha256: bfd7fcaa8e8888a8af423aa4a76d0930ac51ffa05e8e75590d9828d5d8e25623
 
 build:
   noarch: python
