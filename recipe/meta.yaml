@@ -26,7 +26,6 @@ requirements:
     - python-dateutil
 
 test:
-  source_files: src/tests
   imports:
     - time_machine
   commands:
