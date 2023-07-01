@@ -10,7 +10,7 @@ source:
   sha256: 64fd89678cf589fc5554c311417128b2782222dd65f703bf248ef41541761da0
 
 build:
-  noarch: python
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -18,11 +18,11 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python >=3.7
+    - python
     - setuptools
     - pip
   run:
-    - python >=3.7
+    - python
     - python-dateutil
 
 test:
