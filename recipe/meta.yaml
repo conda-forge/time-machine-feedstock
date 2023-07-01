@@ -40,9 +40,13 @@ test:
   commands:
     - pip check
     # can't test on windows due to use of ``time.tzset``
-    - pytest src/tests -vv --cov=time_machine --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under={{ cov_threshold }}  # [unix]    
+    - pytest src/tests -vv --cov=time_machine --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under={{ cov_threshold }}  # [unix]
   requires:
     - pip
+    - backports.zoneinfo
+    - pytest-cov
+    - pytest-randomly
+    - python-dateutil
 
 about:
   home: https://github.com/adamchainz/time-machine
