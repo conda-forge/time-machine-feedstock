@@ -1,7 +1,8 @@
-{% set version = "2.9.0" %}
+{% set name = "time-machine" %}
+{% set version = "2.10.0" %}
 
 package:
-  name: time-machine
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
@@ -12,20 +13,20 @@ source:
     url: https://github.com/adamchainz/time-machine/archive/refs/tags/{{ version }}.tar.gz
     sha256: 4c356560a2af1b3235da6deeeb68de67afda2bcfbe2a810e211ae4c5df3684a4
 
-
 build:
-  skip: true  # [py<37]
-  script: cd dist && {{ PYTHON }} -m pip install . -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python
+    - python >=3.7
+    - setuptools
     - pip
   run:
-    - python
+    - python >=3.7
     - python-dateutil
 
 {% set cov_threshold = 98 %}  # [linux]
