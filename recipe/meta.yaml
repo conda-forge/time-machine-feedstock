@@ -19,7 +19,7 @@ source:
 
 build:
   skip: true  # [py<37]
-  script: {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
@@ -48,7 +48,7 @@ about:
   home: https://github.com/adamchainz/time-machine
   summary: Travel through time in your tests.
   license: MIT
-  license_file: LICENSE
+  license_file: dist/LICENSE
 
 extra:
   recipe-maintainers:
