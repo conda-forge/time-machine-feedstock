@@ -1,4 +1,3 @@
-{% set name = "time-machine" %}
 {% set version = "2.10.0" %}
 
 {% set cov_threshold = 98 %}  # [linux]
@@ -6,12 +5,12 @@
 {% set cov_threshold = 0 %}  # [win]
 
 package:
-  name: {{ name|lower }}
+  name: time-machine
   version: {{ version }}
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/time_machine-{{ version }}.tar.gz
+    url: https://pypi.io/packages/source/t/time-machine/time_machine-{{ version }}.tar.gz
     sha256: 64fd89678cf589fc5554c311417128b2782222dd65f703bf248ef41541761da0
   - folder: src
     url: https://github.com/adamchainz/time-machine/archive/refs/tags/{{ version }}.tar.gz
@@ -19,22 +18,22 @@ source:
 
 build:
   skip: true  # [py<37]
-  script: cd dist && {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python
-    - setuptools
     - pip
+    - python
   run:
     - python
     - python-dateutil
 
 test:
-  source_files: src/tests
+  source_files: 
+    - src/tests
   imports:
     - time_machine
   commands:
@@ -42,8 +41,8 @@ test:
     # can't test on windows due to use of ``time.tzset``
     - pytest src/tests -vv --cov=time_machine --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under={{ cov_threshold }}  # [unix]
   requires:
-    - pip
     - backports.zoneinfo
+    - pip
     - pytest-cov
     - pytest-randomly
     - python-dateutil
