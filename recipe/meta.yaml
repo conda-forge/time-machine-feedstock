@@ -17,7 +17,7 @@ source:
     sha256: a146ca10dde910a158f3607f3e45d3f9ec5034263967f5b55b1c40ebcf3fa487
 
 build:
-  skip: true  # [py<37]
+  skip: true  # [py<38]
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
