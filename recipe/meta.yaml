@@ -1,7 +1,7 @@
 {% set version = "2.13.0" %}
 
-{% set cov_threshold = 99 %}  # [linux]
-{% set cov_threshold = 99 %}  # [osx]
+{% set cov_threshold = 99 %}
+{% set cov_threshold = 99 %}  # [osx and py38]
 {% set cov_threshold = 0 %}  # [win]
 
 package:
