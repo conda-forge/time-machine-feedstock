@@ -1,8 +1,8 @@
-{% set version = "2.13.0" %}
+{% set version = "2.14.1" %}
 
 {% set cov_threshold = 99 %}
-{% set cov_threshold = 57 %}  # [osx and py<39]
-{% set cov_threshold = 0 %}  # [win]
+{% set cov_threshold = 98 %}  # [py<311]
+{% set cov_threshold = 0 %}   # [win or (osx and py<39)]
 
 package:
   name: time-machine
@@ -10,16 +10,16 @@ package:
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/t/time-machine/time_machine-{{ version }}.tar.gz
-    sha256: c23b2408e3adcedec84ea1131e238f0124a5bc0e491f60d1137ad7239b37c01a
+    url: https://pypi.io/packages/source/t/time-machine/time-machine-{{ version }}.tar.gz
+    sha256: 57dc7efc1dde4331902d1bdefd34e8ee890a5c28533157e3b14a429c86b39533
   - folder: src
     url: https://github.com/adamchainz/time-machine/archive/refs/tags/{{ version }}.tar.gz
-    sha256: a0892ada963bd16fdaf657d71ef9bec614931c467a935f3217bf08906fe3bd11
+    sha256: a57bfadf961318fca2ba840d15116176e253aa8689d88c830480b46f0ea5dcdf
 
 build:
   skip: true  # [py<38]
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -40,12 +40,16 @@ test:
     - time_machine
   commands:
     - pip check
-    # can't test on windows due to use of ``time.tzset``
-    - pytest src/tests -vv --cov=time_machine --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under={{ cov_threshold }}  # [unix]
+    # can't test on 
+    #  - windows/any due to use of ``time.tzset``
+    #  - osx/3.8 due to use of ``time.CLOCK_MONOTONIC``
+    - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long  # [not (win or (osx and py<39))]
+    - coverage report --show-missing --skip-covered --fail-under={{ cov_threshold }}             # [not (win or (osx and py<39))]
   requires:
     - backports.zoneinfo
+    - coverage
     - pip
-    - pytest-cov
+    - pytest
     - pytest-randomly
     - python-dateutil
 
