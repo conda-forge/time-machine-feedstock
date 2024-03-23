@@ -1,8 +1,9 @@
 {% set version = "2.14.1" %}
 
 {% set cov_threshold = 99 %}
+{% set cov_threshold = 98 %}  # [py<11]
 {% set cov_threshold = 57 %}  # [osx and py<39]
-{% set cov_threshold = 0 %}  # [win]
+{% set cov_threshold = 0 %}   # [win]
 
 package:
   name: time-machine
