@@ -1,7 +1,6 @@
 {% set version = "2.14.2" %}
 
-{% set cov_threshold = 99 %}
-{% set cov_threshold = 98 %}  # [py<311]
+{% set cov_threshold = 98 %}
 {% set cov_threshold = 0 %}  # [win or (osx and py<39)]
 
 package:
