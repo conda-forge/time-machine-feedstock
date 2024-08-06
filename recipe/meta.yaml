@@ -1,4 +1,4 @@
-{% set version = "2.14.2" %}
+{% set version = "2.15.0" %}
 
 {% set cov_threshold = 98 %}
 {% set cov_threshold = 0 %}  # [win or (osx and py<39)]
@@ -10,10 +10,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/t/time-machine/time_machine-{{ version }}.tar.gz
-    sha256: 6e5150cdf1e128c4b3bea214204b4d7747456d9c7ce8e3d83c204e59f9640b72
+    sha256: ebd2e63baa117ded04b978813fcd1279d3fc6be2149c9cac75c716b6f1db774c
   - folder: src
     url: https://github.com/adamchainz/time-machine/archive/refs/tags/{{ version }}.tar.gz
-    sha256: d31729bb75a54b6be0c324be90a2fca074daefd5735d59fc24d1aad223ed07d1
+    sha256: 1b8d9e36813cbaee65e554f0c104e09ac9cb2a54ac641e5dadd969550496f8ed
 
 build:
   skip: true  # [py<38]
