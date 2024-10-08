@@ -16,7 +16,7 @@ source:
     sha256: d2ed8ebef04133d69bce09114bbf66be0d404d725597874a644318af6e0b3e28
 
 build:
-  skip: true  # [py<38]
+  skip: true  # [py<39]
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
@@ -41,7 +41,7 @@ test:
     - time_machine
   commands:
     - pip check
-    # can't test on 
+    # can't test on
     #  - windows/any due to use of ``time.tzset``
     #  - osx/3.8 due to use of ``time.CLOCK_MONOTONIC``
     - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long  # [not (win or (osx and py<39))]
