@@ -43,8 +43,8 @@ test:
     - pip check
     # can't test on...
     #  - (windows|aarch64|ppcle64)/any due to use of ``time.tzset``
-    - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long  # [osx or (linux and (not linux64) and py < 312)]
-    - coverage report --show-missing --skip-covered --fail-under={{ cov_threshold }}             # [osx or (linux and (not linux64) and py < 312)]
+    - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long  # [osx or (linux and py < 312 and (target_platform != host_platform))]
+    - coverage report --show-missing --skip-covered --fail-under={{ cov_threshold }}             # [osx or (linux and py < 312 and (target_platform != host_platform))]
   requires:
     - backports.zoneinfo
     - coverage
