@@ -57,7 +57,7 @@ tests:
           - tokenize-rt
       script:
         - pip check
-        - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long
+        - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long -p pytester
         - coverage report --show-missing --skip-covered --fail-under=98
 
 about:
