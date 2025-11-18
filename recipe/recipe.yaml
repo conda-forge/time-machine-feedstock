@@ -36,7 +36,8 @@ requirements:
     - setuptools
   run:
     - python
-    - python-dateutil
+  run_constraints:
+    - python-dateutil >=2.8.2
 
 tests:
   - python:
