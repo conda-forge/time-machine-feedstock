@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.0.0"
+  version: "3.1.0"
 
 package:
   name: time-machine
@@ -10,10 +10,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
-    sha256: c75b5d91f711d10ff4052f00e6cf6869b2de358d1fc2ec224ba22ac629b17638
+    sha256: 90831c2cf9e18e4199abb85fafa0c0ca0c6c15d0894a03ef68d5005a796c4f27
     target_directory: dist
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 5e1f582f91f9ebc9161a8d961c75f9f64ec089110b3e466a4715b5c33232c68a
+    sha256: 5ccc9add7f678a2652249d12efea446db0540acc90240ae9327d2fdcbba4f920
     target_directory: src
 
 build:
