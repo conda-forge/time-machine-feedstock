@@ -52,6 +52,7 @@ tests:
         run:
           - backports.zoneinfo
           - coverage
+          - freezegun
           - pytest
           - pytest-randomly
           - python-dateutil
