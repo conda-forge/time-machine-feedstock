@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.1.0"
+  version: "3.2.0"
 
 package:
   name: time-machine
@@ -10,10 +10,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
-    sha256: 90831c2cf9e18e4199abb85fafa0c0ca0c6c15d0894a03ef68d5005a796c4f27
+    sha256: a4ddd1cea17b8950e462d1805a42b20c81eb9aafc8f66b392dd5ce997e037d79
     target_directory: dist
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 5ccc9add7f678a2652249d12efea446db0540acc90240ae9327d2fdcbba4f920
+    sha256: c74880a913e25b30de6be7645fa81b8ff374f0332dbbfd6c22d9445729cee637
     target_directory: src
 
 build:
@@ -52,6 +52,7 @@ tests:
         run:
           - backports.zoneinfo
           - coverage
+          - freezegun
           - pytest
           - pytest-randomly
           - python-dateutil
