@@ -43,7 +43,7 @@ tests:
   - python:
       imports: time_machine
       pip_check: true
-  - if: unix
+  - if: not (win or (linux_ppc64le and match(python, "<3.12")))
     then:
       files:
         source:
