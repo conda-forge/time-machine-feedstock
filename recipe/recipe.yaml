@@ -43,7 +43,8 @@ tests:
   - python:
       imports: time_machine
       pip_check: true
-  - if: not (win or (linux_ppc64le and match(python, "<3.12")))
+  # conftest.py uses tzset; not available on all platforms/python
+  - if: not (win or match(python, "<3.12"))
     then:
       files:
         source:
