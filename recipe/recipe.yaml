@@ -12,6 +12,10 @@ source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
     sha256: 2ddaea5ad047845e07c2275bc31740f3f63f9e79ce9917dd10b23444b1fc2fbf
     target_directory: dist
+    patches:
+      - if: target_platform == "linux-ppc64le"
+        then:
+          - 0000-no-leaf-frame-pointer.patch
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
     sha256: 0d569ae3d76002a76653a627c6c458d936b164322ec0f5148a2ca2313a83773e
     target_directory: src
@@ -65,7 +69,8 @@ about:
   summary: Travel through time in your tests.
   license: MIT
   license_file: dist/LICENSE
-  homepage: https://github.com/adamchainz/time-machine
+  homepage: https://pypi.org/project/time-machine
+  repository: https://github.com/adamchainz/time-machine
 
 extra:
   recipe-maintainers:

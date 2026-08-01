@@ -1,0 +1,14 @@
+diff --git a/setup.py b/setup.py
+index 8624c81..25b325c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -14,7 +14,8 @@ extra_compile_args = []
+ if sys.platform != "win32":
+     extra_compile_args += [
+         "-fno-omit-frame-pointer",
+-        "-mno-omit-leaf-frame-pointer",
++        # not present on ppc64le
++        # "-mno-omit-leaf-frame-pointer",
+     ]
+ 
+ 
