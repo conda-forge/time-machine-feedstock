@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.3.0"
+  version: "3.3.1"
 
 package:
   name: time-machine
@@ -10,14 +10,14 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
-    sha256: 2ddaea5ad047845e07c2275bc31740f3f63f9e79ce9917dd10b23444b1fc2fbf
+    sha256: 83dd00ca0492bf14dc3b0ea4182483f5385d0e117c2a81c16311aab10a6c112f
     target_directory: dist
     patches:
       - if: target_platform == "linux-ppc64le"
         then:
           - 0000-no-leaf-frame-pointer.patch
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 0d569ae3d76002a76653a627c6c458d936b164322ec0f5148a2ca2313a83773e
+    sha256: b67aa577cb65fd19a54710257e131a391b4b406376bcc5652b82106e90a0caa3
     target_directory: src
 
 build:
@@ -54,6 +54,7 @@ tests:
           - backports.zoneinfo
           - coverage
           - freezegun
+          - hypothesis
           - pytest
           - pytest-randomly
           - python-dateutil
