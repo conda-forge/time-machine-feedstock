@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.4.0"
+  version: "3.5.0"
 
 package:
   name: time-machine
@@ -10,14 +10,14 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
-    sha256: f1c2d8c581f4be50e2f4ff3afd753f8157d52816560de284db716c2b6e9949a8
+    sha256: bc193985b43f15394cfded976efaf9068c3078a2135f42f81c874ba684720eae
     target_directory: dist
     patches:
       - if: target_platform == "linux-ppc64le"
         then:
           - 0000-no-leaf-frame-pointer.patch
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 95b34f3d8c6a1ae5156f26d2b70bd02f18cda4b0faa80d572555bfd0e0f153a4
+    sha256: 80820f4c4fe4232304b6af9bcf93de7c43a4f0db193bc352c8d5b36cea979ad1
     target_directory: src
 
 build:
