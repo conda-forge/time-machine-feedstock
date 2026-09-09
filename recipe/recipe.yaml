@@ -12,10 +12,6 @@ source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
     sha256: eb2c50404820fde8bfc6a0713b2a0b8eabececfecefde3a5847ae8006037829f
     target_directory: dist
-    patches:
-      - if: target_platform == "linux-ppc64le"
-        then:
-          - 0000-no-leaf-frame-pointer.patch
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
     sha256: 409d04bd59a3b2cc79f232968e1902a35daa3d1b4310952ab8682d852ac074ab
     target_directory: src
