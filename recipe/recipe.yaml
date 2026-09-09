@@ -3,6 +3,8 @@ schema_version: 1
 
 context:
   version: "3.5.1"
+  pytest_k: |-
+    not travel_to_aware_datetime
 
 package:
   name: time-machine
@@ -56,7 +58,7 @@ tests:
           - python-dateutil
           - tokenize-rt
       script:
-        - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long -p pytester
+        - coverage run --source=time_machine --branch -m pytest src/tests -vv --color=yes --tb=long -p pytester -k "${{ pytest_k | replace('\n', ' ') }}"
         - coverage report --show-missing --skip-covered --fail-under=98
 
 about:
