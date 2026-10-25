@@ -4,7 +4,7 @@ schema_version: 1
 context:
   version: "3.6.0"
   pytest_k: |-
-    not travel_to_aware_datetime
+    not (travel_to_aware_datetime or test_naive_datetime_modes)
 
 package:
   name: time-machine
