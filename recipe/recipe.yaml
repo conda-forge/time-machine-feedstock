@@ -2,9 +2,9 @@
 schema_version: 1
 
 context:
-  version: "3.5.1"
+  version: "3.6.0"
   pytest_k: |-
-    not travel_to_aware_datetime
+    not (travel_to_aware_datetime or test_naive_datetime_modes)
 
 package:
   name: time-machine
@@ -12,14 +12,14 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/t/time-machine/time_machine-${{ version }}.tar.gz
-    sha256: eb2c50404820fde8bfc6a0713b2a0b8eabececfecefde3a5847ae8006037829f
+    sha256: 92dfc900bbd50d239ad311473ada2201acdca3c3e14562692fd2e31489b57e24
     target_directory: dist
   - url: https://github.com/adamchainz/time-machine/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 409d04bd59a3b2cc79f232968e1902a35daa3d1b4310952ab8682d852ac074ab
+    sha256: 5c82e32875f9c7ee58629eae89b6f9e87f35e3b9fd0d77093f23caa45a66722c
     target_directory: src
 
 build:
-  number: 1
+  number: 0
   script:
     - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
